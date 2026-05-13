@@ -349,7 +349,7 @@ classdef CLGLS < handle
                 o
                 x
                 L
-                options.mode (1,1) string {mustBeMember(options.mode, ["fast", "direct"])} = "direct"
+                options.mode (1,1) string {mustBeMember(options.mode, ["fast", "direct"])} = "fast"
             end
             % x: N x K  matrix
             % L: Number of sources to estimate

@@ -26,7 +26,7 @@ for i = 1 : length(snrdb)
     sum_se = 0;
     for mc = 1 : MC
         x = ToolsObj.generate_uncorrelated_gaussian_channel(A,Rs,sigman2,K);
-        hat_theta = clgls.estimate_doas(x,L,mode="fast");
+        hat_theta = clgls.estimate_doas(x,L);
         err   = theta - hat_theta;
         sum_se = sum_se + mean(err.^2);
     end
