@@ -12,13 +12,13 @@ classdef SheinvaldMethod
         epsilon
     end
     methods
-        function o = SheinvaldMethod(n,nrf,theta0_deg,theta1_deg,theta_step_deg)
+        function o = SheinvaldMethod(n,nrf)
             o.n = n;
             o.nrf = nrf;
             o.nrf2 = nrf*nrf;
             [o.Gv,o.Bm_dic,o.M] = o.gen_codebook();
             % o.theta_grid = deg2rad(theta0_deg:theta_step_deg:theta1_deg);
-            o.theta_grid = linspace(-pi/2,pi/2,1801);
+            o.theta_grid = linspace(-pi/2,pi/2,3801);
             o.Q = length(o.theta_grid);
             o.epsilon = 0.001;
             

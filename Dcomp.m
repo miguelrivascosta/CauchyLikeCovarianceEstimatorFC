@@ -15,42 +15,44 @@ classdef Dcomp < handle
     end
     
     methods
-        function obj = Dcomp(N, Nrf, T, D)
+        function obj = Dcomp(N, Nrf)
             % CONSTRUCTOR: Initializes parameters and builds the codebook/dictionary
             obj.N = N;
             obj.Nrf = Nrf;
             obj.Q = obj.N/obj.Nrf;
-            obj.T = T;   % Note: Represents 'M' (beamforming matrices) from your prompt
-            obj.M = T;
-            obj.D = D;
+            obj.D = 1800;
             
             % 1. Create Spatial Grid and Dictionary Matrix
-            obj.theta_grid_deg = linspace(-90, 90, D);
+            
+            obj.theta_grid_deg = linspace(-90, 90, obj.D);
             obj.theta_grid = deg2rad(obj.theta_grid_deg);
 
-            obj.A_dict = zeros(N, D);
-            for d = 1:D
+            obj.A_dict = zeros(obj.N, obj.D);
+            for d = 1:obj.D
                 obj.A_dict(:, d) = exp(1j * pi * (0:N-1)' .* sin(obj.theta_grid(d)));
             end
             
             % 2. Create Codebook and Effective Sensing Matrices (Phi_cell)
-            Q = N / Nrf;
-            obj.Phi_cell = cell(1, T);
-            obj.Bm_dic = zeros(obj.N, obj.Nrf, T);
-            
-            for t = 1:T
-                % A. Time-Varying Analog Combiner (Random Phase Shifters)
-                W_t = exp(1j*unifrnd(0,2*pi, [obj.N, obj.Nrf])) / sqrt(obj.N);
-                
-                % B. Store Codebook and Calculate Effective Sensing Matrix
-                obj.Bm_dic(:,:,t) = W_t;
-                obj.Phi_cell{t} = W_t' * obj.A_dict;
 
-                obj.Phi_dic(:,:,t) = W_t' * obj.A_dict;
-            end
+            % obj.Phi_cell = cell(1, T);
+            % obj.Bm_dic = zeros(obj.N, obj.Nrf, T);
+            % 
+            % for t = 1:T
+            %     % A. Time-Varying Analog Combiner (Random Phase Shifters)
+            %     W_t = exp(1j*unifrnd(0,2*pi, [obj.N, obj.Nrf])) / sqrt(obj.N);
+            % 
+            %     % B. Store Codebook and Calculate Effective Sensing Matrix
+            %     obj.Bm_dic(:,:,t) = W_t;
+            %     obj.Phi_cell{t} = W_t' * obj.A_dict;
+            % 
+            %     obj.Phi_dic(:,:,t) = W_t' * obj.A_dict;
+            % end
         end
         
-        function update_dictionaries(obj)
+        function create_dictionaries(obj,K)
+            obj.T = K;
+            obj.M = K;
+
             obj.Phi_cell = cell(1, obj.T);
             obj.Bm_dic = zeros(obj.N, obj.Nrf, obj.T);
             
@@ -72,6 +74,7 @@ classdef Dcomp < handle
             %     Y_t = obj.Bm_dic(:,:,t)' * x(:,t);
             %     Ry(:,:,t) = Y_t * Y_t';
             % end
+            
             Y = pagemtimes(pagectranspose(obj.Bm_dic),reshape(x,[obj.N,1,size(x,2)]));
             Ry = pagemtimes(Y,pagectranspose(Y));
             V = Ry; % Initialize Residuals

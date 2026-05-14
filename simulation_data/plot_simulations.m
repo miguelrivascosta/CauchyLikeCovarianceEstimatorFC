@@ -1,6 +1,5 @@
 clear, close all
 
-
 color_clgls="blue";
 line_clgls = "-";
 name_clgls="ClGLS";
@@ -31,20 +30,18 @@ line_rcrb = "-";
 marker_rcrb = "none";
 name_rcrb="RCRB";
 
+line_width = 1.5;
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%% RMSE vs SNR
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% dcomp_Nrf2 = load('rmse_vs_snr_dcomp_n8_Nrf2.mat');
+%% RMSE vs SNR
+dcomp_Nrf2 = load('rmse_vs_snr_dcomp_n8_Nrf2.mat');
 ls2dft_Nrf2 = load('rmse_vs_snr_ls2dft_n8_Nrf2.mat');
 eaml_Nrf2 = load('rmse_vs_snr_eaml_n8_Nrf2.mat');
 pi_Nrf2 = load('rmse_vs_snr_pi_n8_Nrf2.mat');
 bsa_Nrf2 = load('rmse_vs_snr_bsa_n8_Nrf2.mat');
 clgls_Nrf2 = load('rmse_vs_snr_clgls_n8_Nrf2.mat');
 
-% dcomp_Nrf4 = load('rmse_vs_snr_dcomp_n8_Nrf4.mat');
+dcomp_Nrf4 = load('rmse_vs_snr_dcomp_n8_Nrf4.mat');
 ls2dft_Nrf4 = load('rmse_vs_snr_ls2dft_n8_Nrf4.mat');
 eaml_Nrf4 = load('rmse_vs_snr_eaml_n8_Nrf4.mat');
 pi_Nrf4 = load('rmse_vs_snr_pi_n8_Nrf4.mat');
@@ -56,26 +53,110 @@ marker_Nrf4 = ">";
 
 figure
 hold on
-% semilogy(dcomp_Nrf2.snrdb,dcomp_Nrf2.rmse_deg,LineStyle=line_dcomp,Marker=marker_Nrf2,Color=color_dcomp,DisplayName=name_dcomp)
-semilogy(ls2dft_Nrf2.snrdb,ls2dft_Nrf2.rmse_deg,LineStyle=line_ls2dft,Marker=marker_Nrf2,Color=color_ls2dft,DisplayName=name_ls2dft)
-semilogy(eaml_Nrf2.snrdb,eaml_Nrf2.rmse_deg,LineStyle=line_eaml,Marker=marker_Nrf2,Color=color_eaml,DisplayName=name_eaml)
-semilogy(pi_Nrf2.snrdb,pi_Nrf2.rmse_deg,LineStyle=line_pi,Marker=marker_Nrf2,Color=color_pi,DisplayName=name_pi)
-semilogy(bsa_Nrf2.snrdb,bsa_Nrf2.rmse_deg,LineStyle=line_bsa,Marker=marker_Nrf2,Color=color_bsa,DisplayName=name_bsa)
-semilogy(clgls_Nrf2.snrdb,clgls_Nrf2.rmse_deg,LineStyle=line_clgls,Marker=marker_Nrf2,Color=color_clgls,DisplayName=name_clgls)
-semilogy(clgls_Nrf2.snrdb_rcrb,clgls_Nrf2.rcrb_deg,LineStyle=line_rcrb,Marker=marker_rcrb,Color=color_rcrb,DisplayName=name_rcrb)
+plot(dcomp_Nrf2.snrdb,dcomp_Nrf2.rmse_deg,LineStyle=line_dcomp,Marker=marker_Nrf2,Color=color_dcomp,DisplayName=name_dcomp)
+plot(ls2dft_Nrf2.snrdb,ls2dft_Nrf2.rmse_deg,LineStyle=line_ls2dft,Marker=marker_Nrf2,Color=color_ls2dft,DisplayName=name_ls2dft,LineWidth=line_width)
+plot(eaml_Nrf2.snrdb,eaml_Nrf2.rmse_deg,LineStyle=line_eaml,Marker=marker_Nrf2,Color=color_eaml,DisplayName=name_eaml,LineWidth=line_width)
+plot(pi_Nrf2.snrdb,pi_Nrf2.rmse_deg,LineStyle=line_pi,Marker=marker_Nrf2,Color=color_pi,DisplayName=name_pi,LineWidth=line_width)
+plot(bsa_Nrf2.snrdb,bsa_Nrf2.rmse_deg,LineStyle=line_bsa,Marker=marker_Nrf2,Color=color_bsa,DisplayName=name_bsa,LineWidth=line_width)
+plot(clgls_Nrf2.snrdb,clgls_Nrf2.rmse_deg,LineStyle=line_clgls,Marker=marker_Nrf2,Color=color_clgls,DisplayName=name_clgls,LineWidth=line_width)
+plot(clgls_Nrf2.snrdb_rcrb,clgls_Nrf2.rcrb_deg,LineStyle=line_rcrb,Marker=marker_rcrb,Color=color_rcrb,DisplayName=name_rcrb,LineWidth=line_width)
 
-% semilogy(dcomp_Nrf4.snrdb,dcomp_Nrf4.rmse_deg,LineStyle=line_dcomp,Marker=marker_Nrf4,Color=color_dcomp,DisplayName=name_dcomp)
-semilogy(ls2dft_Nrf4.snrdb,ls2dft_Nrf4.rmse_deg,LineStyle=line_ls2dft,Marker=marker_Nrf4,Color=color_ls2dft,DisplayName=name_ls2dft)
-semilogy(eaml_Nrf4.snrdb,eaml_Nrf4.rmse_deg,LineStyle=line_eaml,Marker=marker_Nrf4,Color=color_eaml,DisplayName=name_eaml)
-semilogy(pi_Nrf4.snrdb,pi_Nrf4.rmse_deg,LineStyle=line_pi,Marker=marker_Nrf4,Color=color_pi,DisplayName=name_pi)
-semilogy(bsa_Nrf4.snrdb,bsa_Nrf4.rmse_deg,LineStyle=line_bsa,Marker=marker_Nrf4,Color=color_bsa,DisplayName=name_bsa)
-semilogy(clgls_Nrf4.snrdb,clgls_Nrf4.rmse_deg,LineStyle=line_clgls,Marker=marker_Nrf4,Color=color_clgls,DisplayName=name_clgls)
-semilogy(clgls_Nrf4.snrdb_rcrb,clgls_Nrf4.rcrb_deg,LineStyle=line_rcrb,Marker=marker_rcrb,Color=color_rcrb,DisplayName=name_rcrb)
+plot(dcomp_Nrf4.snrdb,dcomp_Nrf4.rmse_deg,LineStyle=line_dcomp,Marker=marker_Nrf4,Color=color_dcomp,DisplayName=name_dcomp)
+plot(ls2dft_Nrf4.snrdb,ls2dft_Nrf4.rmse_deg,LineStyle=line_ls2dft,Marker=marker_Nrf4,Color=color_ls2dft,DisplayName=name_ls2dft,LineWidth=line_width)
+plot(eaml_Nrf4.snrdb,eaml_Nrf4.rmse_deg,LineStyle=line_eaml,Marker=marker_Nrf4,Color=color_eaml,DisplayName=name_eaml,LineWidth=line_width)
+plot(pi_Nrf4.snrdb,pi_Nrf4.rmse_deg,LineStyle=line_pi,Marker=marker_Nrf4,Color=color_pi,DisplayName=name_pi,LineWidth=line_width)
+plot(bsa_Nrf4.snrdb,bsa_Nrf4.rmse_deg,LineStyle=line_bsa,Marker=marker_Nrf4,Color=color_bsa,DisplayName=name_bsa,LineWidth=line_width)
+plot(clgls_Nrf4.snrdb,clgls_Nrf4.rmse_deg,LineStyle=line_clgls,Marker=marker_Nrf4,Color=color_clgls,DisplayName=name_clgls,LineWidth=line_width)
+plot(clgls_Nrf4.snrdb_rcrb,clgls_Nrf4.rcrb_deg,LineStyle=line_rcrb,Marker=marker_rcrb,Color=color_rcrb,DisplayName=name_rcrb,LineWidth=line_width)
 
 hold off
 set(gca,yscale='log')
 xlabel('$\mathrm{SNR [dB]}$',Interpreter='latex')
 ylabel('$\mathrm{RMSE [deg]}$',Interpreter='latex')
 legend(Interpreter='latex')
+ylim([1e-1,20])
+grid on
 
+%% RMSE vs delta
+% dcomp_Nrf2 = load('rmse_vs_snr_dcomp_n8_Nrf2.mat');
+% ls2dft_Nrf2 = load('rmse_vs_delta_ls2dft_n8_Nrf2.mat');
+% eaml_Nrf2 = load('rmse_vs_delta_eaml_n8_Nrf2.mat');
+% pi_Nrf2 = load('rmse_vs_delta_pi_n8_Nrf2.mat');
+% bsa_Nrf2 = load('rmse_vs_delta_bsa_n8_Nrf2.mat');
+% clgls_Nrf2 = load('rmse_vs_delta_clgls_n8_Nrf2.mat');
+% 
+% % dcomp_Nrf4 = load('rmse_vs_delta_dcomp_n8_Nrf4.mat');
+% ls2dft_Nrf4 = load('rmse_vs_delta_ls2dft_n8_Nrf4.mat');
+% eaml_Nrf4 = load('rmse_vs_delta_eaml_n8_Nrf4.mat');
+% pi_Nrf4 = load('rmse_vs_delta_pi_n8_Nrf4.mat');
+% bsa_Nrf4 = load('rmse_vs_delta_bsa_n8_Nrf4.mat');
+% clgls_Nrf4 = load('rmse_vs_delta_clgls_n8_Nrf4.mat');
+% 
+% marker_Nrf2 = "o";
+% marker_Nrf4 = ">";
+% 
+% figure
+% hold on
+% % plot(dcomp_Nrf2.snrdb,dcomp_Nrf2.rmse_deg,LineStyle=line_dcomp,Marker=marker_Nrf2,Color=color_dcomp,DisplayName=name_dcomp)
+% plot(ls2dft_Nrf2.delta_deg,ls2dft_Nrf2.rmse_deg,LineStyle=line_ls2dft,Marker=marker_Nrf2,Color=color_ls2dft,DisplayName=name_ls2dft,LineWidth=line_width)
+% plot(eaml_Nrf2.delta_deg,eaml_Nrf2.rmse_deg,LineStyle=line_eaml,Marker=marker_Nrf2,Color=color_eaml,DisplayName=name_eaml,LineWidth=line_width)
+% plot(pi_Nrf2.delta_deg,pi_Nrf2.rmse_deg,LineStyle=line_pi,Marker=marker_Nrf2,Color=color_pi,DisplayName=name_pi,LineWidth=line_width)
+% plot(bsa_Nrf2.delta_deg,bsa_Nrf2.rmse_deg,LineStyle=line_bsa,Marker=marker_Nrf2,Color=color_bsa,DisplayName=name_bsa,LineWidth=line_width)
+% plot(clgls_Nrf2.delta_deg,clgls_Nrf2.rmse_deg,LineStyle=line_clgls,Marker=marker_Nrf2,Color=color_clgls,DisplayName=name_clgls,LineWidth=line_width)
+% plot(clgls_Nrf2.delta_rcrb_deg,clgls_Nrf2.rcrb_deg,LineStyle=line_rcrb,Marker=marker_rcrb,Color=color_rcrb,DisplayName=name_rcrb,LineWidth=line_width)
+% 
+% % plot(dcomp_Nrf4.delta_deg,dcomp_Nrf4.rmse_deg,LineStyle=line_dcomp,Marker=marker_Nrf4,Color=color_dcomp,DisplayName=name_dcomp)
+% plot(ls2dft_Nrf4.delta_deg,ls2dft_Nrf4.rmse_deg,LineStyle=line_ls2dft,Marker=marker_Nrf4,Color=color_ls2dft,DisplayName=name_ls2dft,LineWidth=line_width)
+% plot(eaml_Nrf4.delta_deg,eaml_Nrf4.rmse_deg,LineStyle=line_eaml,Marker=marker_Nrf4,Color=color_eaml,DisplayName=name_eaml,LineWidth=line_width)
+% plot(pi_Nrf4.delta_deg,pi_Nrf4.rmse_deg,LineStyle=line_pi,Marker=marker_Nrf4,Color=color_pi,DisplayName=name_pi,LineWidth=line_width)
+% plot(bsa_Nrf4.delta_deg,bsa_Nrf4.rmse_deg,LineStyle=line_bsa,Marker=marker_Nrf4,Color=color_bsa,DisplayName=name_bsa,LineWidth=line_width)
+% plot(clgls_Nrf4.delta_deg,clgls_Nrf4.rmse_deg,LineStyle=line_clgls,Marker=marker_Nrf4,Color=color_clgls,DisplayName=name_clgls,LineWidth=line_width)
+% plot(clgls_Nrf4.delta_rcrb_deg,clgls_Nrf4.rcrb_deg,LineStyle=line_rcrb,Marker=marker_rcrb,Color=color_rcrb,DisplayName=name_rcrb,LineWidth=line_width)
+% 
+% hold off
+% set(gca,yscale='log')
+% xlabel('$\Delta\theta\mathrm{ [deg]}$',Interpreter='latex')
+% ylabel('$\mathrm{RMSE [deg]}$',Interpreter='latex')
+% legend(Interpreter='latex')
+%%
+%% Presolution vs delta
+dcomp_Nrf2 = load('presolution_vs_delta_dcomp_n8_Nrf2.mat');
+ls2dft_Nrf2 = load('presolution_vs_delta_ls2dft_n8_Nrf2.mat');
+eaml_Nrf2 = load('presolution_vs_delta_eaml_n8_Nrf2.mat');
+pi_Nrf2 = load('presolution_vs_delta_pi_n8_Nrf2.mat');
+bsa_Nrf2 = load('presolution_vs_delta_bsa_n8_Nrf2.mat');
+clgls_Nrf2 = load('presolution_vs_delta_clgls_n8_Nrf2.mat');
 
+dcomp_Nrf4 = load('presolution_vs_delta_dcomp_n8_Nrf4.mat');
+ls2dft_Nrf4 = load('presolution_vs_delta_ls2dft_n8_Nrf4.mat');
+eaml_Nrf4 = load('presolution_vs_delta_eaml_n8_Nrf4.mat');
+pi_Nrf4 = load('presolution_vs_delta_pi_n8_Nrf4.mat');
+bsa_Nrf4 = load('presolution_vs_delta_bsa_n8_Nrf4.mat');
+clgls_Nrf4 = load('presolution_vs_delta_clgls_n8_Nrf4.mat');
+
+marker_Nrf2 = "o";
+marker_Nrf4 = ">";
+
+figure
+hold on
+plot(dcomp_Nrf2.delta_deg,dcomp_Nrf2.presolution,LineStyle=line_dcomp,Marker=marker_Nrf2,Color=color_dcomp,DisplayName=name_dcomp)
+plot(ls2dft_Nrf2.delta_deg,ls2dft_Nrf2.presolution,LineStyle=line_ls2dft,Marker=marker_Nrf2,Color=color_ls2dft,DisplayName=name_ls2dft,LineWidth=line_width)
+plot(eaml_Nrf2.delta_deg,eaml_Nrf2.presolution,LineStyle=line_eaml,Marker=marker_Nrf2,Color=color_eaml,DisplayName=name_eaml,LineWidth=line_width)
+plot(pi_Nrf2.delta_deg,pi_Nrf2.presolution,LineStyle=line_pi,Marker=marker_Nrf2,Color=color_pi,DisplayName=name_pi,LineWidth=line_width)
+plot(bsa_Nrf2.delta_deg,bsa_Nrf2.presolution,LineStyle=line_bsa,Marker=marker_Nrf2,Color=color_bsa,DisplayName=name_bsa,LineWidth=line_width)
+plot(clgls_Nrf2.delta_deg,clgls_Nrf2.presolution,LineStyle=line_clgls,Marker=marker_Nrf2,Color=color_clgls,DisplayName=name_clgls,LineWidth=line_width)
+
+plot(dcomp_Nrf4.delta_deg,dcomp_Nrf4.presolution,LineStyle=line_dcomp,Marker=marker_Nrf4,Color=color_dcomp,DisplayName=name_dcomp)
+plot(ls2dft_Nrf4.delta_deg,ls2dft_Nrf4.presolution,LineStyle=line_ls2dft,Marker=marker_Nrf4,Color=color_ls2dft,DisplayName=name_ls2dft,LineWidth=line_width)
+plot(eaml_Nrf4.delta_deg,eaml_Nrf4.presolution,LineStyle=line_eaml,Marker=marker_Nrf4,Color=color_eaml,DisplayName=name_eaml,LineWidth=line_width)
+plot(pi_Nrf4.delta_deg,pi_Nrf4.presolution,LineStyle=line_pi,Marker=marker_Nrf4,Color=color_pi,DisplayName=name_pi,LineWidth=line_width)
+plot(bsa_Nrf4.delta_deg,bsa_Nrf4.presolution,LineStyle=line_bsa,Marker=marker_Nrf4,Color=color_bsa,DisplayName=name_bsa,LineWidth=line_width)
+plot(clgls_Nrf4.delta_deg,clgls_Nrf4.presolution,LineStyle=line_clgls,Marker=marker_Nrf4,Color=color_clgls,DisplayName=name_clgls,LineWidth=line_width)
+
+hold off
+set(gca,yscale='log')
+xlabel('$\Delta\theta\mathrm{ [deg]}$',Interpreter='latex')
+ylabel('$\mathrm{RMSE [deg]}$',Interpreter='latex')
+legend(Interpreter='latex')
+ylim([5e-1,1.05])
+grid on
