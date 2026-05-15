@@ -1,7 +1,7 @@
 
 %% RMS vs SNR
 clear
-MC = 50;
+MC = 1e4;
 N = 8;
 Nrf = [2,4];
 K = 192;
@@ -45,7 +45,7 @@ run_rmse_vs_snr(N,Nrf(2),K,theta,Rs,snrdb,MC,method="dcomp")
 
 %% P Resolution vs Delta
 clear
-MC = 50;
+MC = 1e4;
 N = 8;
 Nrf = [2,4];
 K = 192;
