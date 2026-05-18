@@ -211,18 +211,18 @@ font_size = 12;
 
 
 %% RMSE vs K
-dcomp_Nrf2 = load('rmse_vs_K_dcomp_n8_Nrf2.mat');
-ls2dft_Nrf2 = load('rmse_vs_K_ls2dft_n8_Nrf2.mat');
-eaml_Nrf2 = load('rmse_vs_K_eaml_n8_Nrf2.mat');
-pi_Nrf2 = load('rmse_vs_K_pi_n8_Nrf2.mat');
-bsa_Nrf2 = load('rmse_vs_K_bsa_n8_Nrf2.mat');
+dcomp_Nrf2 = load('rmse_vs_delta_dcomp_n8_Nrf2.mat');
+ls2dft_Nrf2 = load('rmse_vs_delta_ls2dft_n8_Nrf2.mat');
+eaml_Nrf2 = load('rmse_vs_delta_eaml_n8_Nrf2.mat');
+pi_Nrf2 = load('rmse_vs_delta_pi_n8_Nrf2.mat');
+bsa_Nrf2 = load('rmse_vs_delta_bsa_n8_Nrf2.mat');
 clgls_Nrf2 = load('rmse_vs_K_clgls_n8_Nrf2.mat');
 
 dcomp_Nrf4 = load('rmse_vs_K_dcomp_n8_Nrf4.mat');
-ls2dft_Nrf4 = load('rmse_vs_K_ls2dft_n8_Nrf4.mat');
-eaml_Nrf4 = load('rmse_vs_K_eaml_n8_Nrf4.mat');
-pi_Nrf4 = load('rmse_vs_K_pi_n8_Nrf4.mat');
-bsa_Nrf4 = load('rmse_vs_K_bsa_n8_Nrf4.mat');
+ls2dft_Nrf4 = load('rmse_vs_delta_ls2dft_n8_Nrf4.mat');
+eaml_Nrf4 = load('rmse_vs_delta_eaml_n8_Nrf4.mat');
+pi_Nrf4 = load('rmse_vs_delta_pi_n8_Nrf4.mat');
+bsa_Nrf4 = load('rmse_vs_delta_bsa_n8_Nrf4.mat');
 clgls_Nrf4 = load('rmse_vs_K_clgls_n8_Nrf4.mat');
 
 marker_Nrf2 = "o";

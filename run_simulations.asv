@@ -70,7 +70,7 @@
 
 %% RMSE VS Kclear
 clear
-MC = 10000;
+MC = 100;
 N = 8;
 Nrf = [2,4];
 K = 192*(1:10);
@@ -78,17 +78,15 @@ theta = deg2rad([-2.56,2.56]);
 Rs = eye(2);
 snrdb = 10;
 
-run_rmse_vs_K(N,Nrf(1),K,theta,Rs,snrdb,MC,method="clgls",rcrb="true")
-run_rmse_vs_K(N,Nrf(1),K,theta,Rs,snrdb,MC,method="bsa")
-run_rmse_vs_K(N,Nrf(1),K,theta,Rs,snrdb,MC,method="eaml")
-run_rmse_vs_K(N,Nrf(1),K,theta,Rs,snrdb,MC,method="ls2dft")
-run_rmse_vs_K(N,Nrf(1),K,theta,Rs,snrdb,MC,method="pi")
-run_rmse_vs_K(N,Nrf(2),K,theta,Rs,snrdb,MC,method="clgls",rcrb="true")
-run_rmse_vs_K(N,Nrf(2),K,theta,Rs,snrdb,MC,method="bsa")
-run_rmse_vs_K(N,Nrf(2),K,theta,Rs,snrdb,MC,method="eaml")
-run_rmse_vs_K(N,Nrf(2),K,theta,Rs,snrdb,MC,method="ls2dft")
-run_rmse_vs_K(N,Nrf(2),K,theta,Rs,snrdb,MC,method="pi")
-
+run_rmse_vs_K(N,Nrf(1),K,delta_th,Rs,snrdb,MC,method="clgls",rcrb="true")
+run_rmse_vs_K(N,Nrf(1),K,delta_th,Rs,snrdb,MC,method="bsa")
+run_rmse_vs_K(N,Nrf(1),K,delta_th,Rs,snrdb,MC,method="eaml")
+run_rmse_vs_K(N,Nrf(1),K,delta_th,Rs,snrdb,MC,method="ls2dft")
+run_rmse_vs_K(N,Nrf(1),K,delta_th,Rs,snrdb,MC,method="pi")
 run_rmse_vs_K(N,Nrf(1),K,theta,Rs,snrdb,MC,method="dcomp")
-run_rmse_vs_K(N,Nrf(2),K,theta,Rs,snrdb,MC,method="dcomp")
+run_rmse_vs_K(N,Nrf(2),K,delta_th,Rs,snrdb,MC,method="clgls",rcrb="true")
+run_rmse_vs_K(N,Nrf(2),K,delta_th,Rs,snrdb,MC,method="bsa")
+run_rmse_vs_K(N,Nrf(2),K,delta_th,Rs,snrdb,MC,method="eaml")
+run_rmse_vs_K(N,Nrf(2),K,delta_th,Rs,snrdb,MC,method="ls2dft")
+run_rmse_vs_K(N,Nrf(2),K,delta_th,Rs,snrdb,MC,method="pi")
 

@@ -17,7 +17,7 @@ function run_rmse_vs_snr(N,Nrf,K,theta,Rs,snrdb,MC,options)
     elseif options.method == "ls2dft"
         obj = LS_2DFT(N,Nrf);
     elseif options.method == "eaml"
-        obj = SheinvaldMethod(N,Nrf);
+        obj = EAML(N,Nrf);
     elseif options.method == "pi"
         obj = PhaseIndependent(N,Nrf);
     elseif options.method == "bsa"
@@ -82,7 +82,7 @@ function run_rmse_vs_snr(N,Nrf,K,theta,Rs,snrdb,MC,options)
         filename = "new_" + filename;
     end
     
-    %semilogy(data.snrdb,data.rmse)
+    %semilogy(data.snrdb,data.rmse_deg)
     save(filename, '-struct','data');
 
 end

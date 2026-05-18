@@ -1,4 +1,4 @@
-classdef SheinvaldMethod
+classdef EAML
     properties
         n
         nrf
@@ -12,13 +12,13 @@ classdef SheinvaldMethod
         epsilon
     end
     methods
-        function o = SheinvaldMethod(n,nrf)
+        function o = EAML(n,nrf)
             o.n = n;
             o.nrf = nrf;
             o.nrf2 = nrf*nrf;
             [o.Gv,o.Bm_dic,o.M] = o.gen_codebook();
             % o.theta_grid = deg2rad(theta0_deg:theta_step_deg:theta1_deg);
-            o.theta_grid = linspace(-pi/2,pi/2,3801);
+            o.theta_grid = linspace(-pi/2,pi/2,1500);
             o.Q = length(o.theta_grid);
             o.epsilon = 0.001;
             
@@ -105,7 +105,7 @@ classdef SheinvaldMethod
                 
                 % Iterative Refinement (Alternating Projection style)
                 iter = 1;
-                max_iter = 50;
+                max_iter = 100;
                 theta_hat_old = o.theta_grid(sort(idx_signals,'ascend'));
                 while true
                     for l = 1:L

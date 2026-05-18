@@ -17,7 +17,7 @@ function run_presolution_vs_delta(N,Nrf,K,delta_th,Rs,snrdb,MC,options)
     elseif options.method == "ls2dft"
         obj = LS_2DFT(N,Nrf);
     elseif options.method == "eaml"
-        obj = SheinvaldMethod(N,Nrf,-90,90,.1);
+        obj = EAML(N,Nrf);
     elseif options.method == "pi"
         obj = PhaseIndependent(N,Nrf);
     elseif options.method == "bsa"
