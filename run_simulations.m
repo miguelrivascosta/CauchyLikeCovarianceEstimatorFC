@@ -69,26 +69,38 @@
 
 
 %% RMSE VS Kclear
-clear
-MC = 10000;
+% clear
+% MC = 10000;
+% N = 8;
+% Nrf = [2,4];
+% K = 192*(1:10);
+% theta = deg2rad([-2.56,2.56]);
+% Rs = eye(2);
+% snrdb = 10;
+% 
+% run_rmse_vs_K(N,Nrf(1),K,theta,Rs,snrdb,MC,method="clgls",rcrb="true")
+% run_rmse_vs_K(N,Nrf(1),K,theta,Rs,snrdb,MC,method="bsa")
+% run_rmse_vs_K(N,Nrf(1),K,theta,Rs,snrdb,MC,method="eaml")
+% run_rmse_vs_K(N,Nrf(1),K,theta,Rs,snrdb,MC,method="ls2dft")
+% run_rmse_vs_K(N,Nrf(1),K,theta,Rs,snrdb,MC,method="pi")
+% run_rmse_vs_K(N,Nrf(2),K,theta,Rs,snrdb,MC,method="clgls",rcrb="true")
+% run_rmse_vs_K(N,Nrf(2),K,theta,Rs,snrdb,MC,method="bsa")
+% run_rmse_vs_K(N,Nrf(2),K,theta,Rs,snrdb,MC,method="eaml")
+% run_rmse_vs_K(N,Nrf(2),K,theta,Rs,snrdb,MC,method="ls2dft")
+% run_rmse_vs_K(N,Nrf(2),K,theta,Rs,snrdb,MC,method="pi")
+% 
+% run_rmse_vs_K(N,Nrf(1),K,theta,Rs,snrdb,MC,method="dcomp")
+% run_rmse_vs_K(N,Nrf(2),K,theta,Rs,snrdb,MC,method="dcomp")
+
+
+%% RMSE vs Theta
+aux = load('/home/miguel/workspace_matlab/CauchyLikeCovarianceEstimatorFC/simulation_data/rmse_vs_theta_Nrf2.mat');
+theta = deg2rad(-60:1:60);
+Rs = 1;
+snrdb = 20;
 N = 8;
-Nrf = [2,4];
-K = 192*(1:10);
-theta = deg2rad([-2.56,2.56]);
-Rs = eye(2);
-snrdb = 10;
-
-run_rmse_vs_K(N,Nrf(1),K,theta,Rs,snrdb,MC,method="clgls",rcrb="true")
-run_rmse_vs_K(N,Nrf(1),K,theta,Rs,snrdb,MC,method="bsa")
-run_rmse_vs_K(N,Nrf(1),K,theta,Rs,snrdb,MC,method="eaml")
-run_rmse_vs_K(N,Nrf(1),K,theta,Rs,snrdb,MC,method="ls2dft")
-run_rmse_vs_K(N,Nrf(1),K,theta,Rs,snrdb,MC,method="pi")
-run_rmse_vs_K(N,Nrf(2),K,theta,Rs,snrdb,MC,method="clgls",rcrb="true")
-run_rmse_vs_K(N,Nrf(2),K,theta,Rs,snrdb,MC,method="bsa")
-run_rmse_vs_K(N,Nrf(2),K,theta,Rs,snrdb,MC,method="eaml")
-run_rmse_vs_K(N,Nrf(2),K,theta,Rs,snrdb,MC,method="ls2dft")
-run_rmse_vs_K(N,Nrf(2),K,theta,Rs,snrdb,MC,method="pi")
-
-run_rmse_vs_K(N,Nrf(1),K,theta,Rs,snrdb,MC,method="dcomp")
-run_rmse_vs_K(N,Nrf(2),K,theta,Rs,snrdb,MC,method="dcomp")
+Nrf = 2;
+K = 192;
+MC = 10000;
+run_rmse_vs_theta(N,Nrf,K,theta,Rs,snrdb,MC,method="dcomp");
 
